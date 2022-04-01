@@ -1,0 +1,24 @@
+import random
+
+
+def guesser(x, y):
+    if x > 9:
+        return("You have not chosen a number from the given range")
+    elif x == y:
+        return("You guessed right!\nThe actual number was: "+str(ranPick))
+    elif x < y:
+        return("Your guess was too small\nThe actual number was: "+str(ranPick))
+    elif x > y:
+        return("Your guess was too high\nThe actual number was: "+str(ranPick))
+
+
+ans = "yes"
+rounds = 0
+while ans == "yes":
+    rounds += 1
+    numPick = int(input("Pick a number from 1 - 9: "))
+    ranPick = random.randint(1, 9)
+    print(guesser(numPick, ranPick))
+    ans = input("Do you want to play another game? (yes/no): ")
+    if ans == "no":
+        print("You've played %s games" % rounds)
